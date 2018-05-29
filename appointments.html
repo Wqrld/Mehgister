@@ -1,0 +1,21 @@
+<script> 
+
+async function fetchAsync (url) {
+  let response = await fetch(url);
+  let data = await response.json();
+  return data;
+}
+
+
+function updaterooster () {
+var element = document.getElementById("rooster");
+element.innerHTML = fetchAsync("localhost:3000");
+console.log("rooster updated");
+}
+
+
+
+setInterval(updaterooster, 60000)
+</script>
+
+<p id="rooster">UPdating....</p>
